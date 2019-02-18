@@ -1,0 +1,12 @@
+
+<h1>Tasks</h1>
+<table class='tasks'>
+  <tr>
+    <th>Task ID</th>
+    <th>Task Name</th>
+  </tr>
+    <tr *ngFor='let task of tasks'>
+    <td>{{task.id}}</td>
+    <td>{{task.name}}</td>
+  </tr>
+</table>
