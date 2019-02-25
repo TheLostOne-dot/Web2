@@ -1,9 +1,9 @@
-import { Task } from '../tasks/task';
+import { Task } from './task';
 
 export const Tasks: Task[] = [
-    { id:11, name: 'Task1'},
-    { id:12, name: 'Task2'},
-    { id:13, name: 'Task3'},
-    { id:14, name: 'Task4'},
-    { id:15, name: 'Task5'}
+    { id:11, name: 'Loitering'},
+    { id:12, name: 'Acquiring elbow grease'},
+    { id:13, name: 'Monkeying about'},
+    { id:14, name: 'Pretend working'},
+    { id:15, name: 'Admiring anime'}
 ]
