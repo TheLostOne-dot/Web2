@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   employees: Employee[] = [];
   departments: Department[] = [];
   tasks: Task[] = [];
-  constructor(private employeeService: EmployeesService,private departmentService: DepartmentService,private taskService: TasksService) { }
+  constructor(private employeeService: EmployeesService, private departmentService: DepartmentService, private tasksService: TasksService) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -31,8 +31,7 @@ export class DashboardComponent implements OnInit {
     .subscribe(departments => this.departments = departments);
   }
   getTasks(): void {
-    this.taskService.getTasks()
-      .subscribe( tasks => this.tasks=tasks);
+    this.tasksService.getTasks()
+      .subscribe(tasks => this.tasks = tasks);
   }
-
 }
