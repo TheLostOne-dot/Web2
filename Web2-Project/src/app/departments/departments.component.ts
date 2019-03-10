@@ -14,6 +14,7 @@ export class DepartmentsComponent implements OnInit {
  selectedDepartment: Department;
  name="";
  id=90;
+ 
   constructor(private departmentService: DepartmentService) { }
 getDepartments():void{
   this.departmentService.getDepartments()
