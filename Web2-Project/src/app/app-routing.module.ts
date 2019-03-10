@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: DepartmentDetailComponent },
-  { path: 'employee/:id', component: EmployeeDetailComponent }
+  { path: 'employee/:id', component: EmployeeDetailComponent },
   { path: 'detail2/:id', component: TaskDetailComponent}
 ];
 
