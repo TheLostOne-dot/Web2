@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DEPARTMENTS} from '../mock-departments';
 import { Department } from '../department';
+import {DepartmentService} from '../department.service';
+
 @Component({
   selector: 'app-departments',
   templateUrl: './departments.component.html',
@@ -8,13 +10,16 @@ import { Department } from '../department';
 })
 export class DepartmentsComponent implements OnInit {
 
- departments=DEPARTMENTS;
+ departments: Department[];
  selectedDepartment: Department;
  name="";
  id=90;
-  constructor() { }
-
+  constructor(private departmentService: DepartmentService) { }
+getDepartments():void{
+  this.departmentService.getDepartments().subscribe(departments => this.departments=departments);
+}
   ngOnInit() {
+    this.getDepartments();
   }
 
   onSelect(department:Department):void{
