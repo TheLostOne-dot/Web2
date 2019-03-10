@@ -11,6 +11,10 @@ export class EmployeesService {
     return of(EMPLOYEES);
   }
 
+  getEmployee(id: number): Observable<Employee> {
+
+    return of(EMPLOYEES.find(employee => employee.empId === id));
+  }
   constructor() { }
 
 }

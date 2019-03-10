@@ -17,7 +17,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
     DepartmentsComponent,
     EmployeesComponent,
     DashboardComponent,
-    DepartmentDetailComponent
+    DepartmentDetailComponent,
     EmployeeDetailComponent
   ],
   imports: [
