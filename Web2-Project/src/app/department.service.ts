@@ -7,10 +7,13 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class DepartmentService {
+
+  constructor() { }
   getDepartments(): Observable<Department[]> {
     return of(DEPARTMENTS);
   }
-  
-  constructor() { }
- 
+  getDepartment(id: number): Observable<Department>{
+   
+    return of (DEPARTMENTS.find(department => department.id === id));
+  }
 }

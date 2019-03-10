@@ -3,7 +3,8 @@
 <ul class="departments">
   <li *ngFor="let department of departments"
     [class.selected]="department===selectedDepartment"
-    (click)="onSelect(department)">
+    (click)="onSelect(department)"
+    routerLink="/detail/{{department.id}}">
     <span class="badge">{{department.id}}</span> {{department.name}}
      <span class="remove" (click)="onRemove(department)">x</span>
   </li>
@@ -14,13 +15,7 @@
     <button (click)="onClick(name)" >Add</button> 
   </label>
 
-  <div *ngIf="selectedDepartment">    
-      <div>
-        <label>Department name Update:
-          <input [(ngModel)]="selectedDepartment.name" placeholder="name">           
-        </label>
-      </div>
-    </div>
+
         
      
   
