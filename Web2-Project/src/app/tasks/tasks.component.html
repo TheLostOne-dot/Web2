@@ -3,9 +3,10 @@
 <ul class="tasks">
   <li *ngFor="let task of tasks"
     [class.selected]="task===selectedTask"
-    (click)="onSelect(task)">
+    (click)="onSelect(task)"
+    routerLink="/detail2/{{task.id}}">
     <span class="badge">{{task.id}}</span> {{task.name}}
-     <span class="remove" (click)="onRemove(task)">x</span>
+    <span class="remove" (click)="onRemove(task)">x</span>
   </li>
 </ul>
 
@@ -13,11 +14,3 @@
     <input [(ngModel)]="name" placeholder="name"> 
     <button (click)="onClick(name)" >Add</button> 
   </label>
-
-  <div *ngIf="selectedTask">    
-      <div>
-        <label>Task name Update:
-          <input [(ngModel)]="selectedTask.name" placeholder="name">           
-        </label>
-      </div>
-    </div>

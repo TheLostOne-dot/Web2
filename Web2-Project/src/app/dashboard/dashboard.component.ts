@@ -3,7 +3,8 @@ import { Employee } from '../employees';
 import { EmployeesService } from '../employees.service';
 import { Department } from '../department';
 import { DepartmentService } from '../department.service';
-
+import { Task } from '../task';
+import { TasksService } from '../tasks.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,11 +13,13 @@ import { DepartmentService } from '../department.service';
 export class DashboardComponent implements OnInit {
   employees: Employee[] = [];
   departments: Department[] = [];
-  constructor(private employeeService: EmployeesService,private departmentService: DepartmentService) { }
+  tasks: Task[] = [];
+  constructor(private employeeService: EmployeesService,private departmentService: DepartmentService,private taskService: TasksService) { }
 
   ngOnInit() {
     this.getEmployees();
     this.getDepartments();
+    this.getTasks();
   }
 
   getEmployees(): void {
@@ -27,4 +30,9 @@ export class DashboardComponent implements OnInit {
     this.departmentService.getDepartments()
     .subscribe(departments => this.departments = departments);
   }
+  getTasks(): void {
+    this.taskService.getTasks()
+      .subscribe( tasks => this.tasks=tasks);
+  }
+
 }
