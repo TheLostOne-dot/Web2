@@ -5,7 +5,6 @@ import { Department } from '../department';
 import { DepartmentService } from '../department.service';
 import { Task } from '../task';
 import { TasksService } from '../tasks.service';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

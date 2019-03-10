@@ -13,4 +13,8 @@ export class TasksService {
   getTasks(): Observable<Task[]> {
     return of(Tasks);
   }
+
+  getTask(id: number): Observable<Task>{
+    return of (Tasks.find(Task => Task.id === id));
+  }
 }

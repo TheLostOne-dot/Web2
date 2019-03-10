@@ -17,7 +17,8 @@
 </div>
 <h3>Tasks</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let task of tasks" class="col-1-4">
+  <a *ngFor="let task of tasks" class="col-1-4"
+  routerLink="/detail2/{{task.id}}">
     <div class="module tasks">
       <h4>{{task.name}}</h4>
     </div>
