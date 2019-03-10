@@ -16,7 +16,8 @@ export class DepartmentsComponent implements OnInit {
  id=90;
   constructor(private departmentService: DepartmentService) { }
 getDepartments():void{
-  this.departmentService.getDepartments().subscribe(departments => this.departments=departments);
+  this.departmentService.getDepartments()
+  .subscribe(departments => this.departments=departments);
 }
   ngOnInit() {
     this.getDepartments();
