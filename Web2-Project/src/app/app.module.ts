@@ -10,7 +10,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
-
+import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+import { DepartmentSearchComponent } from './department-search/department-search.component';
+import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +24,18 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
     DashboardComponent,
     DepartmentDetailComponent,
     EmployeeDetailComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    DepartmentSearchComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

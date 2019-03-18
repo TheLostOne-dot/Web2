@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DEPARTMENTS} from '../mock-departments';
+
 import { Department } from '../department';
-import {DepartmentService} from '../department.service';
+import { DepartmentService } from '../department.service';
 
 @Component({
   selector: 'app-departments',
@@ -9,30 +9,31 @@ import {DepartmentService} from '../department.service';
   styleUrls: ['./departments.component.css']
 })
 export class DepartmentsComponent implements OnInit {
+  departments: Department[];
 
- departments: Department[];
- selectedDepartment: Department;
- name="";
- id=90;
- 
   constructor(private departmentService: DepartmentService) { }
-getDepartments():void{
-  this.departmentService.getDepartments()
-  .subscribe(departments => this.departments=departments);
-}
+
   ngOnInit() {
     this.getDepartments();
   }
 
-  onSelect(department:Department):void{
-    this.selectedDepartment=department;
+  getDepartments(): void {
+    this.departmentService.getDepartments()
+    .subscribe(departments => this.departments = departments);
   }
-  onClick(name){
-    this.departments.push(new Department(this.id=this.id+10,name))
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.departmentService.addDepartment({ name } as Department)
+      .subscribe(department => {
+        this.departments.push(department);
+      });
   }
-  onRemove(department:Department):void{
-    const index = this.departments.indexOf(department);
-    this.departments.splice( index,1);
-    
+
+  delete(department: Department): void {
+    this.departments = this.departments.filter(h => h !== department);
+    this.departmentService.deleteDepartment(department).subscribe();
   }
+
 }
