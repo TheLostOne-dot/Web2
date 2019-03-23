@@ -28,21 +28,6 @@ getDepartments():void{
   onSelect(department:Department): void{
     this.selectedDepartment=department;
     this.selectedEmployees=[];
-    this.employeesService.getEmployees()
-      .subscribe (employee => 
-        {
-          for(let i=0; i<department.employees.length; i++)
-          {
-            for(let j=0; j<employee.length; j++)
-              {
-                if(department.employees[i]==employee[j].empId)
-                {
-                      this.emps.push(empl[j]);
-                }
-              }
-          }
-        }
-      )
   }
   onClick(name){
     this.departments.push(new Department(this.id=this.id+10,name))
