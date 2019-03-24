@@ -10,6 +10,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
     DashboardComponent,
     DepartmentDetailComponent,
     EmployeeDetailComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

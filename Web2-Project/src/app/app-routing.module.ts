@@ -7,6 +7,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: DepartmentDetailComponent },
   { path: 'employee/:id', component: EmployeeDetailComponent },
-  { path: 'detail2/:id', component: TaskDetailComponent}
+  { path: 'detail2/:id', component: TaskDetailComponent },
+  { path: 'calendar', component: CalendarComponent }
 ];
 
 @NgModule({

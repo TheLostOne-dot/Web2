@@ -1,11 +1,14 @@
+import { NgbDate} from '@ng-bootstrap/ng-bootstrap';
 export class Task{
-    id: number;
-    department_id: number;
-    name: string;
-    employees: number[];
-    due_date: string;
-    constructor(id: number, name: string){
-        this.id=id;
-        this.name=name;
+  id: number;
+  name: string;
+  startdate: NgbDate;
+  endDate: NgbDate;
+  constructor(id: number, name: string, startdate: NgbDate, endDate: NgbDate
+  ) {
+    this.id = id;
+    this.name = name;
+    this.startdate = startdate;
+    this.endDate = endDate;
     }
 }
