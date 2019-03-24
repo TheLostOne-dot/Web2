@@ -28,19 +28,12 @@ getDepartments():void{
     this.selectedDepartment=department;
     this.selectedEmployees=[];
   }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.departmentService.addDepartment({ name } as Department)
-      .subscribe(department => {
-        this.departments.push(department);
-      });
+  onClick(name){
+    this.departments.push(new Department(this.id=this.id+10,name))
   }
-
-  delete(department: Department): void {
-    this.departments = this.departments.filter(h => h !== department);
-    this.departmentService.deleteDepartment(department).subscribe();
+  onRemove(department:Department):void{
+    const index = this.departments.indexOf(department);
+    this.departments.splice( index,1);
+    
   }
-
 }
