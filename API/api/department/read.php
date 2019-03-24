@@ -23,7 +23,7 @@
             $department_item = array(
                 'department_id' => $department_id,
                 'department_name' => $department_name,
-                'employee_fk' => $employee_fk,
+                'employee_fk' => $employee_fk
             );
 
             array_push($department_arr["records"], $department_item);
