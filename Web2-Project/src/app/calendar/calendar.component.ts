@@ -18,11 +18,11 @@ export class CalendarComponent implements OnInit {
 
     constructor(calendar: NgbCalendar,private tasksService: TasksService) {
       this.fromDate = calendar.getToday();
-  }
-    onSelectedTask(selectTask: Task): void {
-      console.log(selectTask);
-      this.fromDate = selectTask.startdate;
-      this.toDate = selectTask.endDate;
+    }
+    onSelectedTask(selectTask: Task, calendar: NgbCalendar): void {
+      this.selectTask = selectTask;
+      this.fromDate = calendar.getToday();
+      this.toDate = selectTask.due_date;
     }
 
   isHovered(date: NgbDate) {

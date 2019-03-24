@@ -2,10 +2,10 @@
     <div ngbDropdown class="d-inline-block">
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasick1">
- <a *ngFor="let task of tasks" 
-      [class.select]="task===selectTask"
-     (click)="onSelectedTask(task)">{{task.name}}
-  </a>
+          <a *ngFor="let task of tasks" 
+             [class.select]="task===selectTask"
+             (click)="onSelectedTask(task)">{{task.name}}
+          </a>
       </div>
     </div>
   </div>
@@ -22,3 +22,10 @@
   </span>
 </ng-template>
 </div>
+<div *ngIf="selectTask" class="info">
+    <h2>{{selectTask.name}} info</h2>
+       <div><span>id: </span>{{selectTask.id}}</div>
+    <div><span>Department: </span>{{selectTask.department_id}}</div>
+    <div><span>Employees working on this task: </span>{{selectTask.employees}}</div>
+</div>
+

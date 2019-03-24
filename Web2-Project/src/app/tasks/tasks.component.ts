@@ -30,9 +30,9 @@ export class TasksComponent implements OnInit {
   onSelect(task: Task): void {
     this.selectedTask=task;
   }
-  onClick(name){
-    this.tasks.push(new Task(this.id=this.id+1,name,this.startdate,this.endDate))
-  }
+  //onClick(name){
+  //  this.tasks.push(new Task(this.id=this.id+1,name,this.startdate,this.endDate))
+  //}
   onRemove(task:Task):void{
     const index = this.tasks.indexOf(task);
     this.tasks.splice( index,1);
