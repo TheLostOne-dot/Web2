@@ -23,7 +23,7 @@ export class DepartmentService {
 
   searchDepartments(term: string): Observable<Department[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
+      // if not search term, return empty array.
       return of([]);
     }
     return this.http.get<Department[]>(`${this.departmentsUrl}/?name=${term}`).pipe(
