@@ -13,10 +13,10 @@ export class TasksService {
   constructor(private http: HttpClient, private roouter: Router) { }
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>('http://i875395.hera.fhict.nl/api/387277/task');
+    return this.http.get<Task[]>('http://i875395.hera.fhict.nl/api/386275/task');
   }
 
   getTask(id: number): Observable<Task>{
-    return this.http.get<Task>('http://i875395.hera.fhict.nl/api/387277/task?id=' + id);
+    return this.http.get<Task>('http://i875395.hera.fhict.nl/api/386275/task?id=' + id);
   }
 }

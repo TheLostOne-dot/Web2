@@ -23,3 +23,8 @@
 .col{
     text-align: center;
 }
+.info{
+    text-align: center;
+    background-color: aliceblue;
+    margin-top: 10px;
+}
