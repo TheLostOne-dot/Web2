@@ -12,6 +12,7 @@ import { EmployeesService } from '../employees.service';
 })
 export class DepartmentsComponent implements OnInit {
  selectedEmployees: Employee[];
+ employees: Employee[];
  departments: Department[];
  selectedDepartment: Department;
  name="";
