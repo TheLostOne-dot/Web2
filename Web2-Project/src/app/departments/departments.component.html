@@ -1,21 +1,27 @@
 
 <h2>Departments</h2>
+
+<div>
+  <label>Department name:
+    <input #departmentName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(departmentName.value); departmentName.value=''">
+    add
+  </button>
+</div>
+ 
 <ul class="departments">
-  <li *ngFor="let department of departments"
-    [class.selected]="department===selectedDepartment"
-    (click)="onSelect(department)"
-    routerLink="/detail/{{department.id}}">
-    <span class="badge">{{department.id}}</span> {{department.name}}
-     <span class="remove" (click)="onRemove(department)">x</span>
+  <li *ngFor="let department of departments">
+    <a routerLink="/detail/{{department.id}}">
+      <span class="badge">{{department.id}}</span> {{department.name}}
+    </a>
+    <button class="delete" title="delete department"
+      (click)="delete(department)">x</button>
   </li>
 </ul>
 
-<label>Department name:
-    <input [(ngModel)]="name" placeholder="name"> 
-    <button (click)="onClick(name)" >Add</button> 
-  </label>
-
-
+<app-department-search></app-department-search>
         
      
   

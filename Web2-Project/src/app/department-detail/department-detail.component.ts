@@ -1,31 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import {Department} from '../department';
-import { Location } from '@angular/common';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DepartmentService } from '../department.service';
+import { Location } from '@angular/common';
+
+import { Department }         from '../department';
+import { DepartmentService }  from '../department.service';
 
 @Component({
   selector: 'app-department-detail',
   templateUrl: './department-detail.component.html',
-  styleUrls: ['./department-detail.component.css']
+  styleUrls: [ './department-detail.component.css' ]
 })
 export class DepartmentDetailComponent implements OnInit {
-department: Department;
+  @Input() department: Department;
+
   constructor(
     private route: ActivatedRoute,
-  private departmentService: DepartmentService,
-  private location: Location
-  ) { }
+    private departmentService: DepartmentService,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getDepartment();
   }
-  getDepartment(): void{
+
+  getDepartment(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-  this.departmentService.getDepartment(id)
-    .subscribe(department => this.department = department);
+    this.departmentService.getDepartment(id)
+      .subscribe(department => this.department = department);
   }
+
   goBack(): void {
     this.location.back();
+  }
+
+ save(): void {
+    this.departmentService.updateDepartment(this.department)
+      .subscribe(() => this.goBack());
   }
 }
