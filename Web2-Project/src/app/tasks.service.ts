@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Task } from './task';
-import { Tasks } from './mock-tasks';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router, Route } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
 
-  constructor() { }
+  constructor(private http: HttpClient, private roouter: Router) { }
 
   getTasks(): Observable<Task[]> {
-    return of(Tasks);
+    return this.http.get<Task[]>('http://i875395.hera.fhict.nl/api/387277/task');
   }
 
   getTask(id: number): Observable<Task>{
-    return of (Tasks.find(Task => Task.id === id));
+    return this.http.get<Task>('http://i875395.hera.fhict.nl/api/387277/task?id=' + id);
   }
 }

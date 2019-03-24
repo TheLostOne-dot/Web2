@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {DEPARTMENTS} from '../mock-departments';
 import { Department } from '../department';
 import {DepartmentService} from '../department.service';
 import { Employee } from '../employees';
