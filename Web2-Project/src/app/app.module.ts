@@ -13,6 +13,8 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { DepartmentSearchComponent } from './department-search/department-search.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     DepartmentDetailComponent,
     EmployeeDetailComponent,
     TaskDetailComponent,
-    CalendarComponent
+    CalendarComponent,
+    DepartmentSearchComponent,
+    MessagesComponent
+
   ],
   imports: [
     BrowserModule,

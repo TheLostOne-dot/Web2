@@ -18,4 +18,5 @@ export class DepartmentService {
    
     return this.http.get<Department>('http://i875395.hera.fhict.nl/api/386275/department?id=' + id);
   }
+  
 }
