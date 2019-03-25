@@ -1,0 +1,39 @@
+.calendar{
+    text-align: center;
+    padding-top: 10px;
+}
+.custom-day {
+    text-align: center;
+    padding: 0.185rem 0.25rem;
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.custom-day.focused {
+    background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+    background-color: rgb(2, 117, 216);
+    color: white;
+}
+
+.custom-day.faded {
+    background-color: rgba(2, 117, 216, 0.5);
+}
+.col{
+    text-align: center;
+    margin-top: 10px;
+}
+.info{
+    text-align: center;
+    background-color: aliceblue;
+    margin-top: 10px;
+}
+.change{
+    margin-top: 5px;
+    background-color:lightgray;
+    color: aliceblue;
+}
+.change:hover{
+    background-color: gray;
+}

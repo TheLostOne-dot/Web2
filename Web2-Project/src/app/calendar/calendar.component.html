@@ -1,0 +1,32 @@
+<div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose a Task</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasick1">
+          <button ngbDropdownItem *ngFor="let task of tasks" 
+             [class.select]="task===selectTask"
+             (click)="onSelectedTask(task)">{{task.name}}
+          </button>
+      </div>
+    </div>
+  </div>
+<div class="calendar">
+<ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden"></ngb-datepicker>
+<ng-template #t let-date let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+</ng-template>
+</div>
+<div *ngIf="selectTask" class="info">
+    <h2>{{selectTask.name}} info</h2>
+       <div><span>id: </span>{{selectTask.id}}</div>
+    <div><span>Department: </span>{{selectTask.department_id}}</div>
+    <div><span>Employees working on this task: </span>{{selectTask.employees}}</div>
+    <button class="change" routerLink="/detail2/{{selectTask.id}}">Change</button>
+</div>
+
