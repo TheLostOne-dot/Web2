@@ -11,6 +11,26 @@
 </ul>
 
 <label>Task name:
-    <input [(ngModel)]="name" placeholder="name"> 
-    <button (click)="onClick(name)" >Add</button> 
+    <input [(ngModel)]="name" placeholder="name">
+    <br>
+    <form class="form-inline"><span>Due date :</span>
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+      </div>
+    </div>
+  </div>
+</form>
+    <label>Assign a department:</label>
+   <ul class="departments">
+  <li *ngFor="let department of departments"
+    [class.selected]="department === selectedDepartment"
+    (click)="onSelected(department)">
+    <span class="badge">{{department.id}}</span> {{department.name}}
+  </li>
+</ul>
+    <button (click)="onClick(name,selectedDepartment)" >Add</button> 
   </label>

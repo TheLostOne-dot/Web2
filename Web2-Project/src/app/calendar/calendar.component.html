@@ -1,11 +1,11 @@
 <div class="col">
     <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose a Task</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasick1">
-          <a *ngFor="let task of tasks" 
+          <button ngbDropdownItem *ngFor="let task of tasks" 
              [class.select]="task===selectTask"
              (click)="onSelectedTask(task)">{{task.name}}
-          </a>
+          </button>
       </div>
     </div>
   </div>
@@ -27,5 +27,6 @@
        <div><span>id: </span>{{selectTask.id}}</div>
     <div><span>Department: </span>{{selectTask.department_id}}</div>
     <div><span>Employees working on this task: </span>{{selectTask.employees}}</div>
+    <button class="change" routerLink="/detail2/{{selectTask.id}}">Change</button>
 </div>
 
