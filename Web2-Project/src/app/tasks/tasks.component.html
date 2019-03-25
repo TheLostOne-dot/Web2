@@ -3,8 +3,7 @@
   <li *ngFor="let task of tasks"
     [class.selected]="task===selectedTask"
     (click)="onSelect(task)"
-    routerLink="/detail2/{{task.id}}">
-    <span class="badge">{{task.id}}</span> {{task.name}}
+    routerLink="/detail2/{{task.id}}"> {{task.name}}
     <span class="remove" (click)="onRemove(task)">x</span>
   </li>
 </ul>
