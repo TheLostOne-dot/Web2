@@ -5,7 +5,7 @@ import {
 } from 'rxjs/operators';
 
 import { EmployeesService } from '../employees.service';
-import { Employee } from '../employees';
+import { Employee } from '../employee';
 @Component({
   selector: 'app-employee-search',
   templateUrl: './employee-search.component.html',

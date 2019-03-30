@@ -1,4 +1,4 @@
-import { Employee } from './employees';
+import { Employee } from './employee';
 
 export class Department{
     id: number;

@@ -1,12 +1,12 @@
 <div *ngIf="employee">
-<h2>{{employee.firstName}} Details</h2>
-    <div><span>id: </span>{{employee.empId}}</div>
+<h2>{{employee.first_name}} Details</h2>
+    <div><span>id: </span>{{employee.id}}</div>
     <div><span>Department: </span>{{department.name}}</div>
     <div><label>Change First Name:
-        <input [(ngModel)]="employee.firstName" placeholder="firstName">
+        <input [(ngModel)]="employee.first_name" placeholder="First Name">
         </label></div>
     <div><label>Change Last Name:
-        <input [(ngModel)]="employee.lastName" placeholder="lastName">
+        <input [(ngModel)]="employee.last_name" placeholder="Last Name">
         </label></div>
     <button (click)="goBack()">go back</button>
 </div>
