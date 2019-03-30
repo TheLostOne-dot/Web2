@@ -50,7 +50,6 @@ export class TasksService {
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
-
   addTask(task: Task): void {
     this.http.post<Task>('http://i875395.hera.fhict.nl/api/386275/task', JSON.stringify(task)).subscribe();
   }
