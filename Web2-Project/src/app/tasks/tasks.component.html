@@ -19,7 +19,7 @@
         <span>{{task.name}}</span></a></td>
     <td><span>{{task.department_id}}</span></td>
     <td><span (click)="showEmployee(task.employees)">{{task.employees}}</span></td>
-    <td><button (click)="delete(task)">delete</button></td>
+    <td><button class="delete" (click)="delete(task)">delete</button></td>
   </tr>
 </table>
 

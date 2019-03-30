@@ -1,18 +1,20 @@
 <div id="search-component">
-  <h4>Search</h4>
- 
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
- 
+  <nav class="navbar navbar-light bg-light" >
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #searchBox
+        id="search-box" (input)="search(searchBox.value)">
+    </form>
+  </nav>
   <ul class="search-result">
-    <li *ngFor="let department of departments$ | async" >
-        <a routerLink="/detail/{{department.id}}">
-          {{department.name}}
-        </a>
-    <li *ngFor="let task of tasks$ | async" >
-        <a routerLink="/detail/{{task.id}}">
-          {{task.name}}
-        </a>
-    <li *ngFor="let employee of employees$ | async" >
+    <li *ngFor="let department of departments$ | async">
+      <a routerLink="/detail/{{department.id}}">
+        {{department.name}}
+      </a>
+    <li *ngFor="let task of tasks$ | async">
+      <a routerLink="/detail/{{task.id}}">
+        {{task.name}}
+      </a>
+    <li *ngFor="let employee of employees$ | async">
       <a routerLink="/detail/{{employee.id}}">
         {{employee.name}}
       </a>

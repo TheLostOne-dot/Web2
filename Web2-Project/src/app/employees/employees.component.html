@@ -1,12 +1,11 @@
 <h2>Employees</h2>
 <app-employee-search></app-employee-search>
-<label>First name:
-    <input [(ngModel)]="firstName" placeholder="First Name">
-    <br><label>Last Name:
-    <input [(ngModel)]="lastName" placeholder="Last Name">
-    <button (click)="onClick(firstName,lastName)" >Add</button> 
-  </label>
-</label>
+
+    <input type="text" class="form-control" [(ngModel)]="firstName" placeholder="First Name">
+    <input type="text" class="form-control" [(ngModel)]="lastName" placeholder="Last Name">
+
+    
+    <button (click)="onClick(firstName,lastName)">Add</button>
 <ul class="employees">
 <li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee"(click)="onSelect(employee.service)"  
     routerLink="/employee/{{employee.empId}}"><span class="badge">{{employee.empId}}</span> {{employee.firstName}} {{employee.lastName}}

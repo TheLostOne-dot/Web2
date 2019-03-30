@@ -60,3 +60,8 @@
 .remove:hover{
   background-color:greenyellow;
 }
+
+.form-control{
+  width: 20%;
+  margin-bottom: 8px;
+}
