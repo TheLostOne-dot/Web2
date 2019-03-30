@@ -11,9 +11,10 @@ import { MessageService } from './messeage.service'
 })
 export class TasksService {
 
-  constructor(private http: HttpClient, private router: Router,private messageService: MessageService) { }
+  constructor(private http: HttpClient, private router: Router,private messageService: MessageService) {
+   console.log(this.getTasks())
+  }
   private tasksUrl = 'http://i875395.hera.fhict.nl/api/386275/task';  // URL to web api
-
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>('http://i875395.hera.fhict.nl/api/386275/task');

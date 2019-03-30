@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Employee } from '../employees';
+import { Employee } from '../employee';
 import { EmployeesService } from '../employees.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class EmployeeDetailComponent implements OnInit {
   employee: Employee;
 
   constructor(private route: ActivatedRoute,
-    private departmentService: EmployeesService,
+    private employeeService: EmployeesService,
     private location: Location) { }
 
   ngOnInit() {
@@ -22,8 +22,8 @@ export class EmployeeDetailComponent implements OnInit {
   }
   getEmployee(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.departmentService.getEmployee(id)
-      .subscribe(department => this.employee = department);
+    this.employeeService.getEmployee(id)
+      .subscribe(employee => this.employee = employee);
   }
   goBack(): void {
     this.location.back();

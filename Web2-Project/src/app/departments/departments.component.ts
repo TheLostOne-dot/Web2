@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Department } from '../department';
 import {DepartmentService} from '../department.service';
-import { Employee } from '../employees';
+import { Employee } from '../employee';
 import { EmployeesService } from '../employees.service';
 
 @Component({

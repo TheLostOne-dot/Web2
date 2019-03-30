@@ -8,7 +8,7 @@ import {
 import { Department } from '../department';
 import { DepartmentService } from '../department.service';
 import { EmployeesService } from '../employees.service';
-import { Employee } from '../employees';
+import { Employee } from '../employee';
 import { Task } from '../task';
 import { TasksService } from '../tasks.service'
 @Component({
