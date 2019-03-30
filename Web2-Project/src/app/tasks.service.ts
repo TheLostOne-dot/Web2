@@ -10,7 +10,9 @@ import { Router, Route } from '@angular/router';
 })
 export class TasksService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    console.log(this.getTasks());
+  }
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>('http://i875395.hera.fhict.nl/api/386275/task');
