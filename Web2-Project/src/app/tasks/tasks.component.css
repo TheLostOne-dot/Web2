@@ -5,11 +5,24 @@
 }
 
 .table {
-  width: 90%;
-  height: 200px;
-  border: solid;
-  margin: 15px;
-  margin-top: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.table td {
+  padding: 7px;
+  border: #000000 1px solid;
+}
+
+.table tr:nth-child(odd) {
+  background: #eff3b8;
+}
+
+.table tr:nth-child(even) {
+  background: #ffffff;
 }
 
 button.calendar, button.calendar:active {
