@@ -22,9 +22,18 @@
 }
 .col{
     text-align: center;
+    margin-top: 10px;
 }
 .info{
     text-align: center;
     background-color: aliceblue;
     margin-top: 10px;
+}
+.change{
+    margin-top: 5px;
+    background-color:lightgray;
+    color: aliceblue;
+}
+.change:hover{
+    background-color: gray;
 }

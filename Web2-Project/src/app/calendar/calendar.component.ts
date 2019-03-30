@@ -19,9 +19,8 @@ export class CalendarComponent implements OnInit {
     constructor(calendar: NgbCalendar,private tasksService: TasksService) {
       this.fromDate = calendar.getToday();
     }
-    onSelectedTask(selectTask: Task, calendar: NgbCalendar): void {
+    onSelectedTask(selectTask: Task): void {
       this.selectTask = selectTask;
-      this.fromDate = calendar.getToday();
       this.toDate = selectTask.due_date;
     }
 

@@ -6,6 +6,8 @@ export class Task{
   name: string;
   employees: Employee[];
   due_date: NgbDate;
-  constructor() {
+  constructor(name: string, department_id: number) {
+    this.name = name;
+    this.department_id = department_id;
     }
 }

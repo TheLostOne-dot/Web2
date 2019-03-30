@@ -3,6 +3,7 @@ import { Task } from '../task';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { TasksService } from '../tasks.service';
+import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-task-detail',
@@ -28,6 +29,12 @@ export class TaskDetailComponent implements OnInit {
     this.tasksService.getTask(id)
     .subscribe(task => this.task = task);
   }
+
+  save(task: Task): void {
+    this.tasksService.updateTask(task);
+  }
+
+
 
   goBack(): void {
     this.location.back();
