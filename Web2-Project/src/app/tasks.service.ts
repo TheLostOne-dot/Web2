@@ -12,14 +12,6 @@ import { MessageService } from './messeage.service';
 })
 export class TasksService {
 
-  private _getHeaders(): Headers {
-    let header = new Headers({
-      'Content-Type': 'application/json'
-    });
-
-    return header;
-  }
-
   constructor(private http: HttpClient, private router: Router,private messageService: MessageService) {
    console.log(this.getTasks())
   }
