@@ -15,7 +15,6 @@ export class EmployeesService {
   console.log(this.getEmployees());
   }
   private employeesUrl = 'http://i875395.hera.fhict.nl/api/386275/employee';  // URL to web api
-  options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>('http://i875395.hera.fhict.nl/api/386275/employee');
@@ -52,17 +51,5 @@ export class EmployeesService {
   }
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
-  }
-
-  addEmployee(employee: Employee): void {
-    this.http.post<Employee>('http://i875395.hera.fhict.nl/api/386275/employee', JSON.stringify(employee), this.options).subscribe();
-  }
-
-  updateEmployee(employee: Employee): void {
-    this.http.put<Employee>('http://i875395.hera.fhict.nl/api/386275/employee?id=' + employee.id, JSON.stringify(employee), this.options).subscribe();
-  }
-
-  deleteEmployee(employee: Employee): void {
-    this.http.delete<Employee>('http://i875395.hera.fhict.nl/api/386275/employee?id=' + employee.id).subscribe();
   }
 }

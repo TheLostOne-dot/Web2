@@ -3,13 +3,8 @@
          <div><span>id: </span>{{department.id}}</div>  
 <div>    
   <label>Department name:
-    <input [(ngModel)]="department.name" placeholder="department.name">           
+    <input [(ngModel)]="department.name" placeholder="name">           
     </label>
-    <br>
-    <label>Building: 
-    <input [(ngModel)]="department.building" placeholder="{{department.building}}">
-    </label>
-    <div><span>Employees working in this Department: </span>{{department.employees}}</div>
     </div>
-    <button (click)="goBack()">go back</button> <button (click)="save(department)">save</button>
+    <button (click)="goBack()">go back</button>
   </div>

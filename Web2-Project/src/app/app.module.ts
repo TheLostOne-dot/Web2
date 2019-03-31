@@ -17,7 +17,6 @@ import { DepartmentoSearchComponent } from './department-search/department-searc
 import { TaskSearchComponent } from './task-search/task-search.component';
 import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 import { DashboardSearchComponent } from './dashboard-search/dashboard-search.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    HttpClientModule,
-    NgSelectModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
