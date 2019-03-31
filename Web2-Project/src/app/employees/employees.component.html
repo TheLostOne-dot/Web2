@@ -19,7 +19,6 @@
     <button (click)="onClick(employee)" >Add</button> 
   </label>
 </label>
-
 <ul class="employees">
 <li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee"(click)="onSelect(employee.service)"  
     routerLink="/employee/{{employee.id}}"><span class="badge">{{employee.id}}</span> {{employee.first_name}} {{employee.last_name}}
