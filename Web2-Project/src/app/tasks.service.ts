@@ -28,14 +28,23 @@ export class TasksService {
 
   searchTasks(term: string): Observable<Task[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Task[]>(`${this.tasksUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found departmetns matching "${term}"`)),
-      catchError(this.handleError<Task[]>('searchTasks', []))
-    );
+	let Deps: Task[]=[];
+	let temp: Task[]=[];
+	this.getTasks().subscribe(x => {
+	temp = x;
+	  for(let i=0;i<temp.length;i++){
+
+		if(temp[i].name.search(term)!=-1){
+			Deps.push(temp[i]);
+		}
+	  }
+	});
+	return of(Deps);
+    
   }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
  

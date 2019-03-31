@@ -9,12 +9,12 @@
           {{department.name}}
         </a>
     <li *ngFor="let task of tasks$ | async" >
-        <a routerLink="/detail/{{task.id}}">
+        <a routerLink="/detail2/{{task.id}}">
           {{task.name}}
         </a>
     <li *ngFor="let employee of employees$ | async" >
-      <a routerLink="/detail/{{employee.id}}">
-        {{employee.name}}
+      <a routerLink="/employee/{{employee.id}}">
+        {{employee.first_name}}
       </a>
     </li>
   </ul>
