@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Route } from '@angular/router';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MessageService } from './messeage.service'
+import { MessageService } from './messeage.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,7 @@ export class TasksService {
    console.log(this.getTasks())
   }
   private tasksUrl = 'http://i875395.hera.fhict.nl/api/386275/task';  // URL to web api
+  options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>('http://i875395.hera.fhict.nl/api/386275/task');
@@ -60,16 +62,15 @@ export class TasksService {
     this.messageService.add(`HeroService: ${message}`);
   }
   addTask(task: Task): void {
-    this.http.post<Task>('http://i875395.hera.fhict.nl/api/386275/task', JSON.stringify(task)).subscribe();
+    this.http.post<Task>('http://i875395.hera.fhict.nl/api/386275/task', JSON.stringify(task), this.options).subscribe();
   }
 
   deleteTask(task: Task): void {
-    this.http.delete<Task>('http://i875395.hera.fhict.nl/api/386275/task?id=' + task.id).
-      subscribe(any => this.router.navigateByUrl('/task'));
+    this.http.delete<Task>('http://i875395.hera.fhict.nl/api/386275/task?id=' + task.id).subscribe();
   }
 
   updateTask(task: Task): void {
-    this.http.put<Task>('http://i875395.hera.fhict.nl/api/386275/task', JSON.stringify(task)).subscribe();
+    this.http.put<Task>('http://i875395.hera.fhict.nl/api/386275/task?id=' + task.id, JSON.stringify(task), this.options).subscribe();
 
   }
 }

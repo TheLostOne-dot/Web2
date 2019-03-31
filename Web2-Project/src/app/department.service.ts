@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
-import {Department} from './department';
+import { Department } from './department';
 import { Observable, of } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, Route } from '@angular/router';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MessageService } from './messeage.service'
-import { Employee } from './employee';
-import { DepartmentsComponent } from './departments/departments.component';
+import { MessageService } from './messeage.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DepartmentService {
   private departmentsUrl = 'http://i875395.hera.fhict.nl/api/386275/department';  // URL to web api
-  constructor(private http:HttpClient,private router:Router,private messageService: MessageService) { }
+  options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+
+  constructor(private http: HttpClient, private router: Router, private messageService: MessageService) { }
+
   getDepartments(): Observable<Department[]> {
     return this.http.get<Department[]>('http://i875395.hera.fhict.nl/api/386275/department');
   }
+
   getDepartment(id: number): Observable<Department>{
    
     return this.http.get<Department>('http://i875395.hera.fhict.nl/api/386275/department?id=' + id);
@@ -56,5 +59,17 @@ export class DepartmentService {
   }
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
+  }
+
+  addDepartment(department: Department): void {
+    this.http.post<Department>('http://i875395.hera.fhict.nl/api/386275/department', JSON.stringify(department), this.options).subscribe();
+  }
+
+  updateDepartment(department: Department): void {
+    this.http.put<Department>('http://i875395.hera.fhict.nl/api/386275/department?id=' + department.id, JSON.stringify(department), this.options).subscribe();
+  }
+
+  deleteDepartment(department: Department): void {
+    this.http.delete<Department>('http://i875395.hera.fhict.nl/api/386275/department?id=' + department.id).subscribe();
   }
 }

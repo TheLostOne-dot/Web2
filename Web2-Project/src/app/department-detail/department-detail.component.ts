@@ -25,6 +25,12 @@ department: Department;
   this.departmentService.getDepartment(id)
     .subscribe(department => this.department = department);
   }
+
+  save(department: Department): void {
+    this.departmentService.updateDepartment(department);
+    this.goBack();
+  }
+
   goBack(): void {
     this.location.back();
   }
