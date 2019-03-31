@@ -1,7 +1,7 @@
 <div *ngIf="employee">
 <h2>{{employee.first_name}} Details</h2>
     <div><span>id: </span>{{employee.id}}</div>
-    <div><span>Department: </span>{{department.name}}</div>
+    <div><span>Department: </span>{{department?.name}}</div>
     <div><label>Change First Name:
         <input [(ngModel)]="employee.first_name" placeholder="First Name">
         </label></div>
