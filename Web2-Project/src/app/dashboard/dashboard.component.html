@@ -1,5 +1,5 @@
 <app-dashboard-search></app-dashboard-search>
-<h3>Employees</h3>
+<!--<h3>Employees</h3>
 <div class="grid grid-pad">
   <a *ngFor="let employee of employees" class="col-1-4" routerLink="/employee/{{employee.empId}}">
     <div class="module employees">
@@ -7,7 +7,8 @@
     </div>
   </a>
 </div>
-  <h3>Departments</h3>
+-->
+ <!--<h3>Departments</h3>
 <div class="grid grid-pad">
   <a *ngFor="let department of departments" class="col-1-4"
   routerLink="/detail/{{department.id}}">
@@ -25,3 +26,53 @@
     </div>
   </a>
 </div>
+-->
+
+<h3>Employees</h3>
+<table class="table">
+  <thead class="thead-light text-center">
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let employee of employees" [class.selected]=
+      "employee === selectedEmployee" (click)="onSelect(employee)">
+    <td>
+      <span>{{employee.firstName}}</span>
+    </td>
+    <td>
+      <span>{{employee.lastName}}</span>
+    </td>
+  </tr>
+</table>
+
+<h3>Departments</h3>
+<table class="table text-center">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Department name</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let department of departments" [class.selected]=
+      "department === selectedDepartment" (click)="onSelect(department)">
+    <td>
+      <span>{{department.name}}</span>
+    </td>
+  </tr>
+</table>
+
+<h3>Tasks</h3>
+<table class="table text-center">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Task name</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let task of tasks" [class.selected]=
+      "task === selectedTask" (click)="onSelect(task)">
+    <td>
+      <span>{{task.name}}</span>
+    </td>
+  </tr>
+</table>

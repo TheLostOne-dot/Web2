@@ -72,11 +72,6 @@ body {
   left: .1em;
 }
 
-.departments .text {
-  position: relative;
-  top: -3px;
-}
-
 .departments .badge {
   display: inline-block;
   font-size: small;

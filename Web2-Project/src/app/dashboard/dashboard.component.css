@@ -61,3 +61,24 @@ h4 {
     min-width: 60px;
   }
 }
+.table {
+  width: 50%;
+  border-collapse: collapse;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-top: 1%;
+}
+.table td {
+  padding: 7px;
+  -webkit-text-fill-color: darkslategray;
+}
+
+.table tr:nth-child(odd) {
+  background: #89f1e4;
+}
+
+.table tr:nth-child(even) {
+  background: #ffffff;
+}
