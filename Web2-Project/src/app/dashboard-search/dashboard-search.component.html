@@ -6,17 +6,17 @@
     </form>
   </nav>
   <ul class="search-result">
-    <li *ngFor="let department of departments$ | async">
-      <a routerLink="/detail/{{department.id}}">
-        {{department.name}}
-      </a>
-    <li *ngFor="let task of tasks$ | async">
-      <a routerLink="/detail/{{task.id}}">
-        {{task.name}}
-      </a>
-    <li *ngFor="let employee of employees$ | async">
-      <a routerLink="/detail/{{employee.id}}">
-        {{employee.name}}
+    <li *ngFor="let department of departments$ | async" >
+        <a routerLink="/detail/{{department.id}}">
+          {{department.name}}
+        </a>
+    <li *ngFor="let task of tasks$ | async" >
+        <a routerLink="/detail2/{{task.id}}">
+          {{task.name}}
+        </a>
+    <li *ngFor="let employee of employees$ | async" >
+      <a routerLink="/employee/{{employee.id}}">
+        {{employee.first_name}}
       </a>
     </li>
   </ul>

@@ -1,5 +1,25 @@
 <h2>Departments</h2>
 <app-department-search></app-department-search>
+<ul class="departments">
+  <li *ngFor="let department of departments"
+    [class.selected]="department===selectedDepartment"
+    (click)="onSelect(department)"
+    routerLink="/detail/{{department.id}}">
+    <span class="badge">{{department.id}}</span> {{department.name}}
+     <span class="remove" (click)="onRemove(department)">x</span>
+  </li>
+</ul>
+
+<h3>Add Department</h3>
+<label> Department:
+<input [(ngModel)]="department.name" placeholder="Name" >
+    <br>
+    <label>Building:
+    <input [(ngModel)]="department.building" placeholder="Building">
+    <button (click)="onClick(department)">Add</button> 
+    </label>
+  </label>
+
 
 <table class="table">
   <thead class="thead-dark">

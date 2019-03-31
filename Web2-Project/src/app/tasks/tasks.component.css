@@ -86,3 +86,8 @@ body {
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+.ng-select.custom {
+    border:1px;
+    min-height: 1px;
+    border-radius: 1;
+}
