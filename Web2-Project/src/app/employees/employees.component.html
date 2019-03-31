@@ -1,15 +1,27 @@
 <h2>Employees</h2>
 <app-employee-search></app-employee-search>
 <label>First name:
-    <input [(ngModel)]="firstName" placeholder="First Name">
+    <input [(ngModel)]="employee.first_name" placeholder="First Name">
     <br><label>Last Name:
-    <input [(ngModel)]="lastName" placeholder="Last Name">
-    <button (click)="onClick(firstName,lastName)" >Add</button> 
+    <input [(ngModel)]="employee.last_name" placeholder="Last Name">
+    <br>
+    <label>Birth date:</label>
+    <input [(ngModel)]="employee.birth_date" placeholder="yy-mm-dd">
+    <br>
+    <label>Assign to a department:</label>
+   <ng-select [items]="departments$ | async"
+           bindLabel="name"
+           autofocus
+           bindValue="id"
+           [(ngModel)]="employee.department_id"
+              placeholder="Choose a department">
+</ng-select>
+    <button (click)="onClick(employee)" >Add</button> 
   </label>
 </label>
 <ul class="employees">
 <li *ngFor="let employee of employees" [class.selected]="employee === selectedEmployee"(click)="onSelect(employee.service)"  
-    routerLink="/employee/{{employee.empId}}"><span class="badge">{{employee.id}}</span> {{employee.first_name}} {{employee.last_name}}
-    <span class="remove" (click)="onRemove(employee.sevice)">x</span>
+    routerLink="/employee/{{employee.id}}"><span class="badge">{{employee.id}}</span> {{employee.first_name}} {{employee.last_name}}
+    <span class="remove" (click)="onRemove(employee)">x</span>
 </li>
 </ul>

@@ -1,12 +1,23 @@
 <div *ngIf="employee">
 <h2>{{employee.first_name}} Details</h2>
     <div><span>id: </span>{{employee.id}}</div>
-    <div><span>Department: </span>{{department.name}}</div>
     <div><label>Change First Name:
         <input [(ngModel)]="employee.first_name" placeholder="First Name">
         </label></div>
     <div><label>Change Last Name:
         <input [(ngModel)]="employee.last_name" placeholder="Last Name">
         </label></div>
-    <button (click)="goBack()">go back</button>
+    <label>Birth date:</label>
+    <input [(ngModel)]="employee.birth_date" placeholder="yy-mm-dd">
+    <br>
+    <label>Change department:</label>
+   <ng-select [items]="departments$ | async"
+           bindLabel="name"
+           autofocus
+           bindValue="id"
+           [(ngModel)]="employee.department_id"
+              placeholder="{{employee.department_id}}">
+</ng-select>
+    <button (click)="goBack()">go back</button> <button (click)="save(employee)">save</button>
 </div>
+    
