@@ -14,7 +14,7 @@
         </a>
     <li *ngFor="let employee of employees$ | async" >
       <a routerLink="/detail/{{employee.id}}">
-        {{employee.name}}
+        {{employee.first_name}}
       </a>
     </li>
   </ul>

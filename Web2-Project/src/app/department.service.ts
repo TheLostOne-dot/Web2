@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './messeage.service'
+import { Employee } from './employee';
+import { DepartmentsComponent } from './departments/departments.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,17 +22,25 @@ export class DepartmentService {
     return this.http.get<Department>('http://i875395.hera.fhict.nl/api/386275/department?id=' + id);
   }
 
-
   searchDepartments(term: string): Observable<Department[]> {
     if (!term.trim()) {
-      // if not search term, return empty array.
       return of([]);
     }
-    return this.http.get<Department[]>(`${this.departmentsUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found departmetns matching "${term}"`)),
-      catchError(this.handleError<Department[]>('searchDepartments', []))
-    );
+	let Deps: Department[]=[];
+	let temp: Department[]=[];
+	this.getDepartments().subscribe(x => {
+	temp = x;
+	  for(let i=0;i<temp.length;i++){
+
+		if(temp[i].name.search(term)!=-1){
+			Deps.push(temp[i]);
+		}
+	  }
+	});
+	return of(Deps);
+    //return this.http.get<Department[]>(${this.departmentsUrl}?name=${term}).pipe(tap(_ => this.log(found departments matching "${term}")), catchError(this.handleError<Department[]>('searchDepartments', [])));
   }
+  
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
  

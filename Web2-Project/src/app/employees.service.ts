@@ -25,17 +25,25 @@ export class EmployeesService {
     return this.http.get<Employee>('http://i875395.hera.fhict.nl/api/386275/employee?id=' + id);
   }
 
-  
   searchEmployees(term: string): Observable<Employee[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Employee[]>(`${this.employeesUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found employees matching "${term}"`)),
-      catchError(this.handleError<Employee[]>('searchEmployees', []))
-    );
-  }
+	let Emps: Employee[]=[];
+	let temp: Employee[]=[];
+	this.getEmployees().subscribe(x => {
+	temp = x;
+	  for(let i=0;i<temp.length;i++){
+
+		if(temp[i].first_name.search(term)!=-1){
+			Emps.push(temp[i]);
+		}
+	  }
+	});
+	return of(Emps);
+    //return this.http.get<Employee[]>(${this.employeesUrl}?name=${term}).pipe(tap(_ => this.log(found employees matching "${term}")), catchError(this.handleError<Employee[]>('searchEmployees', [])));
+  } 
+  
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
  
@@ -50,6 +58,6 @@ export class EmployeesService {
     };
   }
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`EmployeeService: ${message}`);
   }
 }
