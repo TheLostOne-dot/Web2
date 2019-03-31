@@ -4,7 +4,6 @@ import { TasksService } from '../tasks.service';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { DepartmentService } from '../department.service';
 import { Department } from '../department';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-tasks',
@@ -16,10 +15,10 @@ export class TasksComponent implements OnInit {
   tasks: Task[];
   departments: Department[];
   selectedTask: Task;
-  task: Task = new Task();
-  message: string;
-  departments$: Observable<Department[]>;
-
+  name="";
+  id = 20;
+  startdate = new NgbDate(2019,1,12);
+  endDate = new NgbDate(2019, 12, 12);
   constructor(private taskService: TasksService, private departmentService: DepartmentService) { }
 
   getTasks(): void {
@@ -32,28 +31,19 @@ export class TasksComponent implements OnInit {
   }
   ngOnInit() {
     this.getTasks();
-    this.departments$ = this.departmentService.getDepartments();
+    this.getDepartments();
   }
 
   onSelect(task: Task): void {
     this.selectedTask=task;
   }
-  addTask(): void{
-    this.taskService.addTask(this.task);
-    this.task = new Task();
-    this.message = "Succesfuly created";
-    this.refresh();
-  }
-
-  onRemove(task: Task): void {
-    this.taskService.deleteTask(task);
+  //onClick(name){
+  //  this.tasks.push(new Task(this.id=this.id+1,name,this.startdate,this.endDate))
+  //}
+  onRemove(task:Task):void{
     const index = this.tasks.indexOf(task);
-    this.tasks.splice(index, 1);
-
-  }
-
-  refresh(): void {
-    window.location.reload();
+    this.tasks.splice( index,1);
+    
   }
 
 

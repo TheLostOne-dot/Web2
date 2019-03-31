@@ -1,10 +1,11 @@
 import { Employee } from './employee';
 
 export class Department{
-  id: number;
+    id: number;
   name: string;
-  building: string;
-  employees: Employee[];
-  constructor() {
-  }
+  //employees: Employee[];
+    constructor(id: number, name: string){
+        this.id=id;
+        this.name=name;
+    }
 }

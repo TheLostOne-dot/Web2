@@ -1,3 +1,4 @@
+
 <h2>Departments</h2>
 <app-department-search></app-department-search>
 <ul class="departments">
@@ -10,14 +11,9 @@
   </li>
 </ul>
 
-<h3>Add Department</h3>
-<label> Department:
-<input [(ngModel)]="department.name" placeholder="Name" >
-    <br>
-    <label>Building:
-    <input [(ngModel)]="department.building" placeholder="Building">
-    <button (click)="onClick(department)">Add</button> 
-    </label>
+<label>Department name:
+    <input [(ngModel)]="name" placeholder="name"> 
+    <button (click)="onClick(name)" >Add</button> 
   </label>
 
 
